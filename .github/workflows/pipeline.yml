@@ -7,6 +7,11 @@ on:
     branches:
       - main
 
+inputs: 
+  env_name:
+    description: 'environment name'
+    required: true
+
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -66,6 +71,8 @@ jobs:
           service: ${{ vars.GOOGLE_MYAPP }}-homolog
           image:   ${{ vars.GOOGLE_ARTIFACT }}/${{ vars.GOOGLE_PROJECT_ID }}/${{ vars.GOOGLE_REPONAME }}/${{ vars.GOOGLE_MYAPP }}:latest
           flags: '--allow-unauthenticated'
+          env_vars: |
+            ENV_NAME=Homolog
 
       - name: Test Homolog
         run: 'curl "${{ steps.homolog-deploy.outputs.url }}"'
@@ -90,6 +97,8 @@ jobs:
           service: ${{ vars.GOOGLE_MYAPP }}-prod
           image:   ${{ vars.GOOGLE_ARTIFACT }}/${{ vars.GOOGLE_PROJECT_ID }}/${{ vars.GOOGLE_REPONAME }}/${{ vars.GOOGLE_MYAPP }}:latest
           flags: '--allow-unauthenticated'
+          env_vars: |
+            ENV_NAME=Prod
 
       - name: Test Prod
         run: 'curl "${{ steps.prod-deploy.outputs.url }}"'
