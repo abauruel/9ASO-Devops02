@@ -4,7 +4,6 @@ import os
 import unittest                                                                                                                                                                                          
 
 class Test(unittest.TestCase):                                                                                                                                                                           
-    title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME', '')
 
     def setUp(self):                                                                                                                                                                                     
         # cria uma instância do unittest, precisa do nome "setUp"                                                                                                                                        
@@ -18,5 +17,6 @@ class Test(unittest.TestCase):
         self.assertEqual(self.result.status_code, 200)                                                                                                                                                   
 
     def test_conteudo(self):                                                                                                                                                                             
+        title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME', '')
         # verifica o retorno do conteudo da pagina                                                                                                                                                       
         self.assertEqual(self.result.data.decode('utf-8'), title)
