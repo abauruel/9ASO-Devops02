@@ -8,7 +8,7 @@ csrf = CSRFProtect(app)
 
 @app.route("/")
 def pagina_inicial():
-    title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME')
+    title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME','')
     return title
 
 

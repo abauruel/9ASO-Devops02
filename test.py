@@ -4,7 +4,7 @@ import os
 import unittest                                                                                                                                                                                          
 
 class Test(unittest.TestCase):                                                                                                                                                                           
-    title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME')
+    title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME', '')
 
     def setUp(self):                                                                                                                                                                                     
         # cria uma instância do unittest, precisa do nome "setUp"                                                                                                                                        
