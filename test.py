@@ -17,6 +17,6 @@ class Test(unittest.TestCase):
         self.assertEqual(self.result.status_code, 200)                                                                                                                                                   
 
     def test_conteudo(self):                                                                                                                                                                             
-        title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME', '')
+        title = 'Laboratório Pipeline DevOps ' + os.getenv('ENV_NAME', '') + 'vFinal'
         # verifica o retorno do conteudo da pagina                                                                                                                                                       
         self.assertEqual(self.result.data.decode('utf-8'), title)
